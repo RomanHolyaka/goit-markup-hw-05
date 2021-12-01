@@ -76,6 +76,11 @@ img {
   text-decoration: none;
 }
 
+:hover,
+:focus {
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 /*-----1 блок - логотип, посилання------*/
 .header {
   margin-left: auto;
@@ -174,10 +179,29 @@ img {
   color: var(--blue-light-color);
 }
 
+.header-link {
+  position: relative;
+}
 .header-link.current {
   color: var(--blue-light-color);
 }
-
+.header-link.current::after {
+  opacity: 1;
+}
+.header-link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  left: 0;
+  bottom: 0;
+  background: var(--blue-light-color);
+  border-radius: 2px;
+  opacity: 0;
+}
+.header-link:hover::after {
+  opacity: 1;
+}
 /*----------Oсновний блок------------*/
 .hero {
   text-align: center;
@@ -602,15 +626,25 @@ img {
 }
 .mainhero-card {
   display: block;
+  overflow: hidden;
 }
+
 .mainhero-card:hover ::before {
   opacity: 1;
+  transform: translatey(calc(0%));
+  transition-duration: 2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .mainhero-card:hover .mainhero-lorem-text {
   opacity: 1;
+  transform: translatey(calc(0%));
+  transition-duration: 2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .mainhero-animation {
   position: relative;
+  overflow: hidden;
 }
 .mainhero-animation::before {
   display: inline-block;
@@ -620,6 +654,7 @@ img {
   height: 100%;
   background-color: rgba(33, 150, 243, 0.9);
   opacity: 0;
+  transform: translatey(300px);
 }
 .mainhero-lorem-text {
   position: absolute;
@@ -631,6 +666,7 @@ img {
   letter-spacing: 0.03em;
   color: var(--white-color);
   opacity: 0;
+  transform: translatey(300px);
 }
 .mainhero-name {
   padding: 20px 24px;
@@ -653,6 +689,7 @@ img {
 
 /*----Модальное ОКНО----*/
 .backdrop.is-hidden {
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
@@ -664,6 +701,7 @@ img {
   height: 100%;
   background: rgba(47, 48, 58, 0.8);
 }
+
 .modal {
   position: absolute;
   top: 50%;
@@ -683,13 +721,11 @@ img {
   right: 8px;
   height: 30px;
   width: 30px;
-  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   background: var(--white-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
 }
 /*-----------DONE----------------*/
