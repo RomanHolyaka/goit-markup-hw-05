@@ -438,10 +438,12 @@ img {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  fill: var(--grey-muddy-color);
   background: 0;
+  color: var(--grey-muddy-color);
 
-  transition-property: fill, background;
+  fill: currentColor;
+
+  transition-property: color, background;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -450,7 +452,7 @@ img {
 }
 .social:hover,
 .social:focus {
-  fill: var(--white-color);
+  color: var(--white-color);
   background: var(--blue-light-color);
 }
 
@@ -486,16 +488,17 @@ img {
   border: 1px solid #afb1b8;
   box-sizing: border-box;
   border-radius: 4px;
-  fill: var(--grey-muddy-color);
+  color: var(--grey-muddy-color);
+  fill: currentColor;
 
-  transition-property: fill, border;
+  transition-property: color, border;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link:hover,
 .client-link:focus {
-  fill: var(--blue-light-color);
+  color: var(--blue-light-color);
   border: 1px solid #2196f3;
 }
 
@@ -577,7 +580,8 @@ img {
   align-items: center;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
-  fill: var(--white-color);
+  color: var(--white-color);
+  fill: currentColor;
 
   transition-property: background;
   transition-duration: 250ms;
@@ -665,17 +669,20 @@ img {
 .mainhero-card {
   display: block;
   overflow: hidden;
+  box-shadow: 0;
 
   transition-property: box-shadow;
   transition-duration: 750ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.mainhero-card:hover ::before {
+.mainhero-card:hover ::before,
+.mainhero-card:focus ::before {
   transform: translatey(calc(0%));
   background-color: rgba(33, 150, 243, 0.9);
 }
-.mainhero-card:hover .mainhero-lorem-text {
+.mainhero-card:hover .mainhero-lorem-text,
+.mainhero-card:focus .mainhero-lorem-text {
   transform: translatey(calc(0%));
   color: var(--white-color);
 }
@@ -764,8 +771,8 @@ img {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-
   transform: translate(-50%, -50%) scale(1);
+
   transition-property: transform;
   transition-duration: 750ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
