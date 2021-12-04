@@ -391,6 +391,12 @@ img {
 .team-item:last-child {
   margin-right: 0px;
 }
+.team-item-icon {
+  margin-right: 10px;
+}
+.team-item-icon:last-child {
+  margin-right: 0px;
+}
 .team-title {
   margin-bottom: 50px;
   font-weight: 700;
@@ -738,7 +744,7 @@ img {
 
 /*----Модальное ОКНО----*/
 .backdrop.is-hidden {
-  visibility: hidden;
+  visibility: inherit;
   opacity: 0;
   pointer-events: none;
 }
@@ -751,13 +757,10 @@ img {
   background: rgba(47, 48, 58, 0.8);
 
   opacity: 1;
-  transition-property: opasity;
-  transition-duration: 750ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0.4);
+  transition-property: opasity;
+  transition-duration: 5s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal {
@@ -776,6 +779,9 @@ img {
   transition-property: transform;
   transition-duration: 750ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
 }
 
 .modal-exit {
